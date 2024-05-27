@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOoDoo</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/do.css')}}">
+    
+</head>
+<body {% if background_color == 'lavender' %}style="background-color: lavender;"{% elif background_color == 'darkseagreen' %}style="background-color: darkseagreen;"{% elif background_color == 'powderblue' %}style="background-color: powderblue;"{% endif %}>
+        
+    <button class="clrs" id="clrs" ><div class="crl" id="clr" onclick="colrs()"></div></button> 
+    <form action="{{ url_for('butto') }}" method="POST" >
+        <div class="mode" id="mode" style="display: none">
+            <button class="modeA" type="submit" name="button_clicked" value="lavender"></button>
+            <button class="modeB" type="submit" name="button_clicked" value="darkseagreen"></button>
+            <button class="modeC" type="submit" name="button_clicked" value="powderblue"></button>
+        </div>
+    </form>   
+    </div>
+    <div class="wrapper">
+        <div class="heads">
+            Time..To..Tackle..Our..ToDos...!
+        </div>
+        
+    </div>
+    
+    <div class="allc">
+            
+        <form action="{{url_for('home', background_color=background_color)}}" method="POST">
+            <input type="hidden" name="background_color" value="{{ background_color }}">
+            <div >
+                <input class="text" type="text"  placeholder="Your Task!!" name="todo_name">
+                <button class="buton" type="submit">+</button>
+            </div>
+        </form>
+        <div class="todo">
+            {% for item in items %}
+            <p id="item" {% if item.checked %}class="checked"{% endif %} >{{item.name}}</p>
+            <div class="actions">
+                <form action="{{url_for('checked',todo_id=item.id, background_color=background_color)}}" method="POST">
+                    <input type="hidden" name="background_color" value="{{ background_color }}">
+                    <input class="check"   type="checkbox"{% if item.checked %}checked{% endif %} onchange="this.form.submit()" >
+                </form>
+                <form action="{{url_for('delete',todo_id=item.id, background_color=background_color)}}" method="POST">
+                    <input type="hidden" name="background_color" value="{{ background_color }}">
+                    <button class="del">Delete</button>
+                </form>
+                
+            </div>
+        
+        {% endfor %}
+    </div>
+    </div>        
+    <script src="{{ url_for('static', filename='js/do.js') }}"></script>
+</body>
+</html>
