@@ -1,0 +1,142 @@
+/* body */
+body{
+    margin-top:100px;
+    background-size:cover;
+    color: darkslategrey;
+    transition: background-color 0.5s ease;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* mode button */
+.clrs{
+    height:35px;
+    width:70px;
+    margin-left:1300px;
+    border-radius:20px;
+    border: 2px solid ;
+    color:rgb(37, 58, 2);
+}
+.crl{
+    border:3px solid darkolivegreen;
+    border-radius: 50px;
+    width:22px;
+    height:22px;
+    background-color:rgb(177, 222, 100);
+
+}
+/* Modes */
+.mode{
+    padding-top:100px;
+    margin-left:1250px;
+    position: fixed;
+}
+.modeA,.modeB,.modeC{
+    height:50px;
+    width:50px;
+    border-radius: 50px;
+    border:0px;
+}
+.modeA{
+    background-color: lavender;
+}
+.modeB{
+    background-color:darkseagreen;
+}
+.modeC{
+    background-color:powderblue;
+}
+/* Heading */
+.wrapper {
+    height: 100ps;
+    display: grid;
+    place-items: center;
+  }
+  
+.heads {
+    width: 650px;
+    margin-top: -70px;
+    margin-bottom: 40px;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family:fantasy;
+    font-size: 50px;
+}
+
+@keyframes typing {
+  from {
+  width: 0
+  }
+}
+  
+@keyframes blink {
+  50% {
+  border-color: transparent
+  }
+}
+/* Box */
+.allc{
+    
+    margin-left:280px;
+    width:900px;
+    padding:20px;
+    height:500px;
+    border-radius: 100px;
+    background-color: rgb(231, 240, 240);
+    }
+
+/* new task */
+.text{
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    margin-left: 50px;
+    margin-top: 30px;
+    height:50px;
+    width:700px;
+    font-size:30px;
+    border:none;
+    color:black;
+}
+/* add button */
+.buton{
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    height:50px;
+    width:70px;
+    font-size: 41px;
+    padding-bottom:50px;
+    margin-left:-5px;
+    border:none;
+    background-color: cadetblue;
+
+}
+/* added item */
+#item{
+    font-size:30px;
+    position:absolute;
+    margin-left:130px;
+    
+}
+/* if checked */
+.checked {
+    text-decoration: line-through;
+}
+/* check box */
+.check{
+    height:30px;
+    width:30px;
+    margin-left:500px;
+    position:absolute;
+    margin-top: 30px;
+}
+/* delete button */
+.del{
+    margin-top: 30px;
+    height:30px;
+    width:60px;
+    margin-left:600px;
+    font-size: 15px;
+    border-radius: 20px;
+    background-color: rgb(170, 209, 209);
+    border-color:rgb(79, 132, 132);
+}
+
