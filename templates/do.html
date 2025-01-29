@@ -28,29 +28,38 @@
     <div class="allc">
             
         <form action="{{url_for('home', background_color=background_color)}}" method="POST">
-            <input type="hidden" name="background_color" value="{{ background_color }}">
-            <div >
-                <input class="text" type="text"  placeholder="Your Task!!" name="todo_name">
+            <input type="hidden" name="background_color" value="{{ background_color }}" >
+            
+            <div class="top-container">
+                <input 
+    class="text" 
+    type="text" 
+    placeholder="Your Task!!" 
+    name="todo_name" 
+    pattern="[a-zA-Z0-9]+" 
+    title="Task must contain meaningful text (not just spaces or special characters)"
+    class="text" type="text" placeholder="Your Task!!" name="todo_name" required>
                 <button class="buton" type="submit">+</button>
             </div>
         </form>
-        <div class="todo">
-            {% for item in items %}
-            <p id="item" {% if item.checked %}class="checked"{% endif %} >{{item.name}}</p>
-            <div class="actions">
-                <form action="{{url_for('checked',todo_id=item.id, background_color=background_color)}}" method="POST">
-                    <input type="hidden" name="background_color" value="{{ background_color }}">
-                    <input class="check"   type="checkbox"{% if item.checked %}checked{% endif %} onchange="this.form.submit()" >
-                </form>
-                <form action="{{url_for('delete',todo_id=item.id, background_color=background_color)}}" method="POST">
-                    <input type="hidden" name="background_color" value="{{ background_color }}">
-                    <button class="del">Delete</button>
-                </form>
-                
-            </div>
         
-        {% endfor %}
+<div class="todo">
+    {% for item in items %}
+    <div class="todo-container">
+        <p id="item" {% if item.checked %}class="checked"{% endif %}>{{ item.name }}</p>
+        <div class="actions">
+            <form action="{{ url_for('checked', todo_id=item.id, background_color=background_color) }}" method="POST">
+                <input type="hidden" name="background_color" value="{{ background_color }}">
+                <input class="check" type="checkbox" {% if item.checked %}checked{% endif %} onchange="this.form.submit()">
+            </form>
+            <form action="{{ url_for('delete', todo_id=item.id, background_color=background_color) }}" method="POST">
+                <input type="hidden" name="background_color" value="{{ background_color }}">
+                <button class="del">Delete</button>
+            </form>
+        </div>
     </div>
+    {% endfor %}
+</div>
     </div>        
     <script src="{{ url_for('static', filename='js/do.js') }}"></script>
 </body>
