@@ -1,142 +1,334 @@
 /* body */
-body{
-    margin-top:100px;
-    background-size:cover;
+body {
+    margin-top: 100px;
+    background-size: cover;
     color: darkslategrey;
     transition: background-color 0.5s ease;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 /* mode button */
-.clrs{
-    height:35px;
-    width:70px;
-    margin-left:1300px;
-    border-radius:20px;
-    border: 2px solid ;
-    color:rgb(37, 58, 2);
+.clrs {
+    
+    position: fixed;
+    top: 20px; 
+    right: 10px; 
+    height: 35px;
+    width: 70px;
+    border-radius: 20px;
+    border: 2px solid;
+    color: rgb(37, 58, 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.crl{
-    border:3px solid darkolivegreen;
+
+/* Mode toggle color */
+.crl {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgb(177, 222, 100);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: 3px solid darkolivegreen;
     border-radius: 50px;
-    width:22px;
-    height:22px;
-    background-color:rgb(177, 222, 100);
+    background-color: rgb(177, 222, 100);
+    margin-left: -60%;
 
 }
-/* Modes */
-.mode{
-    padding-top:100px;
-    margin-left:1250px;
+
+
+
+/* Mode selection button */
+.mode {
+    display: flex;
     position: fixed;
+    top: 80px; 
+    right: 10px; 
+    flex-direction: column;
+    gap: 10px;
 }
-.modeA,.modeB,.modeC{
-    height:50px;
-    width:50px;
+
+/* Responsive Mode Button (for smaller screens) */
+@media screen and (max-width: 600px) {
+    .clrs {
+        width: 60px;
+        height: 30px;
+    }
+    .crl {
+        width: 15px;
+        height: 15px;
+    }
+    .mode {
+        top: 60px; 
+    }
+}
+
+
+
+/* Modes */
+
+.modeA, .modeB, .modeC {
+    height: 50px;
+    width: 50px;
     border-radius: 50px;
-    border:0px;
+    border: 0px;
 }
-.modeA{
+.modeA {
     background-color: lavender;
 }
-.modeB{
-    background-color:darkseagreen;
+.modeB {
+    background-color: darkseagreen;
 }
-.modeC{
-    background-color:powderblue;
+.modeC {
+    background-color: powderblue;
 }
+
 /* Heading */
 .wrapper {
-    height: 100ps;
-    display: grid;
-    place-items: center;
-  }
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    text-align: center;
+    /* width:fit-content; */
+}
 .heads {
-    width: 650px;
-    margin-top: -70px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
     margin-bottom: 40px;
-    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
     overflow: hidden;
     border-right: 3px solid;
-    font-family:fantasy;
-    font-size: 50px;
+    font-family: fantasy;
+    font-size: 4vw;
 }
 
 @keyframes typing {
-  from {
-  width: 0
-  }
-}
-  
-@keyframes blink {
-  50% {
-  border-color: transparent
-  }
-}
-/* Box */
-.allc{
-    
-    margin-left:280px;
-    width:900px;
-    padding:20px;
-    height:500px;
-    border-radius: 100px;
-    background-color: rgb(231, 240, 240);
+    from {
+        width: 0;
     }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Box */
+.allc {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    height: auto;
+    border-radius: 30px;
+    background-color: rgb(231, 240, 240);
+    
+}
 
 /* new task */
-.text{
-    border-top-left-radius:10px;
-    border-bottom-left-radius:10px;
-    margin-left: 50px;
-    margin-top: 30px;
-    height:50px;
-    width:700px;
-    font-size:30px;
-    border:none;
-    color:black;
+.top-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 900px;  
+    margin: 20px auto;  
 }
-/* add button */
-.buton{
-    border-top-right-radius:10px;
-    border-bottom-right-radius:10px;
-    height:50px;
-    width:70px;
-    font-size: 41px;
-    padding-bottom:50px;
-    margin-left:-5px;
-    border:none;
-    background-color: cadetblue;
 
+/* Search bar */
+.text {
+    flex: 1; 
+    height: 50px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px; 
+    padding: 0 20px;
 }
+
+/* Add button */
+.buton {
+    width: 70px;
+    height: 50px;
+    background-color: cadetblue;
+    border-radius: 0 10px 10px 0; 
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
 /* added item */
-#item{
-    font-size:30px;
-    position:absolute;
-    margin-left:130px;
-    
+#item {
+    font-size: 16px;
+    position: relative;
+    margin: 10px auto;
 }
+
 /* if checked */
 .checked {
     text-decoration: line-through;
 }
+
 /* check box */
-.check{
-    height:30px;
-    width:30px;
-    margin-left:500px;
-    position:absolute;
-    margin-top: 30px;
-}
-/* delete button */
-.del{
-    margin-top: 30px;
-    height:30px;
-    width:60px;
-    margin-left:600px;
-    font-size: 15px;
-    border-radius: 20px;
-    background-color: rgb(170, 209, 209);
-    border-color:rgb(79, 132, 132);
+.check {
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    position: relative;
+    margin-top: 10px;
 }
 
+/* delete button */
+.del {
+    margin-top: 10px;
+    height: 30px;
+    width: 20%;
+    max-width: 60px;
+    font-size: 12px;
+    border-radius: 20px;
+    background-color: rgb(170, 209, 209);
+    border-color: rgb(79, 132, 132);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .mode {
+        padding-top: 10px;
+        right: 5px;
+    }
+
+    .heads {
+        font-size: 6vw;
+    }
+
+    .text {
+        font-size: 14px;
+        width: 85%;
+    }
+
+    .buton {
+        font-size: 16px;
+        width: 15%;
+    }
+
+    #item {
+        font-size: 14px;
+    }
+
+    .check {
+        margin-top: 5px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .del {
+        font-size: 10px;
+        width: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .heads {
+        font-size: 7vw;
+    }
+
+    .text {
+        font-size: 12px;
+        width: 90%;
+    }
+
+    .buton {
+        font-size: 14px;
+        width: 20%;
+    }
+
+    #item {
+        font-size: 12px;
+    }
+
+    .check {
+        height: 20px;
+        width: 20px;
+    }
+
+    .del {
+        font-size: 8px;
+        width: 30%;
+    }
+}
+/* Container for each todo item */
+.todo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    margin: 10px 0; 
+    padding: 10px 20px;
+    border-bottom: 1px solid lightgray;
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+}
+
+/* Ensure parent container stacks items vertically */
+.todo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal;
+    width: 90%; 
+    max-width: 900px;
+    max-height: 500px; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    word-break: break-word; 
+    line-height: 1.5; 
+    border-radius: 20px; 
+    box-sizing: border-box; 
+}
+
+/* Todo name */
+#item {
+    font-size: 20px;
+    flex: 1;
+    color: darkslategrey;
+    margin-right: 20px;
+}
+
+/* Actions container (checkbox + delete button) */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+/* Checkbox */
+.check {
+    height: 25px;
+    width: 25px;
+}
+
+/* Delete button */
+.del {
+    height: 30px;
+    width: 80px;
+    font-size: 14px;
+    border-radius: 20px;
+    background-color: rgb(170, 209, 209);
+    border-color: rgb(79, 132, 132);
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Checked todos */
+.checked {
+    text-decoration: line-through;
+    color: gray;
+}
